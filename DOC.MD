@@ -48,3 +48,8 @@ Para fazer uma requisição POST para criar um novo estudo usando `fetch`, você
 
       const data = await response.json();
     }
+
+
+## IDEIAS
+
+- 

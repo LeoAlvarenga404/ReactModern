@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { SidebarItem } from "./SidebarItem";
-import { AddressBook, AirplaneTilt, Palette, CircleNotch } from 'phosphor-react';
+import { FaBook, FaCircleNotch } from "react-icons/fa";
+
 import logo from '../assets/logo.svg';
 
 export function Sidebar() {
@@ -24,7 +25,7 @@ export function Sidebar() {
 
   return (
     <aside
-      className={`flex flex-col relative ${encolher || fixo ? 'w-96' : 'w-[84px]'} h-screen bg-zinc-950 transition-width duration-300 p-2`}
+      className={`flex flex-col relative ${encolher || fixo ? 'w-96' : 'w-[84px]'} bg-zinc-950 transition-width duration-300 p-2`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -36,13 +37,13 @@ export function Sidebar() {
           Organize
         </h1>
         <button onClick={botaoFixarMenu} className={encolher || fixo ? `absolute top-2 right-2 text-zinc-100 ` : 'hidden'}>
-          <CircleNotch size={24} className={fixo ? 'text-indigo-700' : 'text-zinc-100'}/>
+          <FaCircleNotch size={24} className={fixo ? 'text-indigo-700' : 'text-zinc-100'}/>
         </button>
       </div>
       <nav className="flex flex-col gap-4 mt-5">
-        <SidebarItem to='/' content='Início' icon={AddressBook} hiddenOnHover={!encolher && !fixo} />
-        <SidebarItem to='/teste2' content='AirplaneTilt' icon={AirplaneTilt} hiddenOnHover={!encolher && !fixo} />
-        <SidebarItem to='/teste3' content='Palette' icon={Palette} hiddenOnHover={!encolher && !fixo} />
+        <SidebarItem to='/' content='Início' icon={FaBook} hiddenOnHover={!encolher && !fixo} />
+        <SidebarItem to='/teste2' content='AirplaneTilt' icon={FaBook} hiddenOnHover={!encolher && !fixo} />
+        <SidebarItem to='/teste3' content='Palette' icon={FaBook} hiddenOnHover={!encolher && !fixo} />
       </nav>
     </aside>
   );
