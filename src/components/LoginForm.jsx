@@ -1,62 +1,51 @@
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../api/conexao';
 
 export function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [formData, setFormData] = useState({ email: '', senha: '' });
+  const [error, setError] = useState('');
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prevData) => ({...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      // Fazendo a requisição para o JSON com a lista de usuários
-      const response = await axios.get('http://localhost:3000/usuarios');
-      const usuarios = response.data;
-
-      // Encontrando o usuário com o email fornecido
-      const usuario = usuarios.find(user => user.email === email);
-
-      if (usuario) {
-        // Verificando se a senha fornecida corresponde à hash armazenada
-        const bcrypt = require('bcryptjs');
-        const isMatch = await bcrypt.compare(senha, usuario.senha);
-
-        if (isMatch) {
-          alert('sucesso');
-        } else {
-          alert('Senha incorreta');
-        }
-      } else {
-        alert('usuario nao existe no banco');
-      }
-    } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      alert('Ocorreu um erro ao tentar fazer login.', error);
+      const response = await api.post('/usuarios/login', formData);
+      console.log('Usuário logado:', response.data);
+      setError('Usuário logado com sucesso!'); 
+    } catch {
+      setError('Email ou senha inválidos');
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Email:</label>
+        <label>Email</label>
         <input
           type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
           required
         />
       </div>
       <div>
-        <label>Senha:</label>
+        <label>Senha</label>
         <input
           type="password"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
+          name="senha"
+          value={formData.senha}
+          onChange={handleChange}
           required
         />
       </div>
+      {error && <p className='text-red-500'>{error}</p>}
       <button type="submit">Login</button>
     </form>
   );
-};
-
+}
