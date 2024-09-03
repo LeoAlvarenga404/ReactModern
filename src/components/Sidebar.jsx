@@ -30,9 +30,9 @@ export function Sidebar() {
       onMouseLeave={handleMouseLeave}
     >
       <div className={`flex items-center justify-center gap-5 pb-8 pt-8 border-b border-zinc-700`}>
-        <img src={logo} alt="logo" className='w-18'/>
+        <img src={logo} alt="logo" className={`w-18 `}/>
         <h1
-          className={`text-2xl font-medium text-zinc-200 transition-all duration-300 whitespace-nowrap overflow-hidden ${encolher || fixo ? 'block' : 'hidden'}`}
+          className={`text-2xl font-medium text-zinc-200 transition-all duration-300 whitespace-nowrap overflow-hidden ${encolher || fixo ? 'opacity-100' : 'opacity-0 delay-200'}`}
         >
           Organize
         </h1>
@@ -42,8 +42,8 @@ export function Sidebar() {
       </div>
       <nav className="flex flex-col gap-4 mt-5">
         <SidebarItem to='/' content='Início' icon={FaBook} hiddenOnHover={!encolher && !fixo} />
-        <SidebarItem to='/teste2' content='AirplaneTilt' icon={FaBook} hiddenOnHover={!encolher && !fixo} />
-        <SidebarItem to='/teste3' content='Palette' icon={FaBook} hiddenOnHover={!encolher && !fixo} />
+        <SidebarItem to='/teste' content='AirplaneTilt' icon={FaBook} hiddenOnHover={!encolher && !fixo} />
+        <SidebarItem to='/teste2' content='Palette' icon={FaBook} hiddenOnHover={!encolher && !fixo} />
       </nav>
     </aside>
   );

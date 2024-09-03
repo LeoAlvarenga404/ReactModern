@@ -1,19 +1,14 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { Home } from '../pages/Home';
-import { Teste } from '../pages/Teste';
-import { SignIn } from '../pages/SignIn'
-import { SignUp } from '../pages/SignUp'
+import { BrowserRouter } from 'react-router-dom';
+import { useAuth } from '../hooks/auth';
+import { AppRoutes } from './app.routes';
+import { AuthRoutes } from './auth.routes';
 
-export function AppRoutes() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} /> 
-        <Route path="/teste" element={<Teste />} />
-        <Route path="/login" element={<SignIn />}/>
-        <Route path="/register" element={<SignUp />}/>
-        <Route path='*' element={<Navigate to="/"/>}/>
-      </Routes>
-    </Router>
-  );
+export function Routes(){
+  const { usuario } = useAuth();
+
+  return(
+    <BrowserRouter>
+    { usuario ? <AppRoutes/> : <AuthRoutes/>}
+    </BrowserRouter>
+  )
 }

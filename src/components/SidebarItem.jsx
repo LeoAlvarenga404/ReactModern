@@ -13,7 +13,7 @@ export function SidebarItem({ to, content, icon: Icon, hiddenOnHover }) {
       >
         <Icon size={36} weight='regular' className={`flex-shrink-0 ${hiddenOnHover ? 'scale-125' : 'scale-100'}`} />
         <span
-          className='overflow-hidden whitespace-nowrap'
+          className={`overflow-hidden whitespace-nowrap transition-all duration-300 ${hiddenOnHover ? 'opacity-0' : 'opacity-100'}`}
         >
           {content}
         </span>
