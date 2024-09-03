@@ -1,50 +1,36 @@
 import { useState } from 'react';
-import api from '../api/conexao';
+import axios from '../api/conexao';
 
 export function LoginForm() {
-  const [formData, setFormData] = useState({ email: '', senha: '' });
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((prevData) => ({...prevData, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
+  async function submitFazerLogin(e) {
     e.preventDefault();
+
     try {
-      const response = await api.post('/usuarios/login', formData);
-      console.log('Usuário logado:', response.data);
-      setError('Usuário logado com sucesso!'); 
+      await axios.post('/usuarios/login', { email, senha });
+      console.log('Usuário logado:');
+
     } catch {
-      setError('Email ou senha inválidos');
+      console.log('deu errado');
     }
-  };
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={submitFazerLogin}>
       <div>
-        <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
+        <label>EMAIL</label>
+        <input type="email" value={email} required
+          onChange={(e) => setEmail(e.target.value)} 
         />
       </div>
       <div>
-        <label>Senha</label>
-        <input
-          type="password"
-          name="senha"
-          value={formData.senha}
-          onChange={handleChange}
-          required
+        <label>SENHA</label>
+        <input type="password" value={senha} required
+          onChange={(e) => setSenha(e.target.value)} 
         />
       </div>
-      {error && <p className='text-red-500'>{error}</p>}
       <button type="submit">Login</button>
     </form>
   );
