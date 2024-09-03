@@ -1,34 +1,35 @@
 import { useState } from 'react';
-import axios from '../api/conexao';
+import { useAuth } from '../hooks/auth';
 
 export function LoginForm() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
-  async function submitFazerLogin(e) {
+  const { signIn } = useAuth();
+
+  function handleSignIn(e) {
     e.preventDefault();
-
-    try {
-      await axios.post('/usuarios/login', { email, senha });
-      console.log('Usuário logado:');
-
-    } catch {
-      console.log('deu errado');
-    }
+    signIn({ email, senha });
   }
 
   return (
-    <form onSubmit={submitFazerLogin}>
+    <form onSubmit={handleSignIn}>
       <div>
         <label>EMAIL</label>
-        <input type="email" value={email} required
-          onChange={(e) => setEmail(e.target.value)} 
+        <input
+          type="email"
+          value={email}
+          required
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div>
         <label>SENHA</label>
-        <input type="password" value={senha} required
-          onChange={(e) => setSenha(e.target.value)} 
+        <input
+          type="password"
+          value={senha}
+          required
+          onChange={(e) => setSenha(e.target.value)}
         />
       </div>
       <button type="submit">Login</button>

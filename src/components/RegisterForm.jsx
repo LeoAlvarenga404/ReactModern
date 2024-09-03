@@ -1,47 +1,48 @@
-// src/components/RegisterForm.jsx
-import { useState } from 'react';
-import api from '../api/conexao';
+import { useState } from 'react'
+import axios from '../api/conexao'
+
 
 export function RegisterForm() {
-  const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    senha: '',
-  });
+  const [ nome, setNome ] = useState('')
+  const [ email, setEmail ] = useState('')
+  const [ senha, setSenha ] = useState('')
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  async function CadastrarUsuario(e) {
+    e.preventDefault()
+
     try {
-      const response = await api.post('/usuarios/register', formData);
-      console.log('Usuário registrado:', response.data);
-    } catch (error) {
-      console.error('Erro ao registrar usuário:', error);
+      await axios.post('/usuarios/register', {nome, email, senha})
+      console.log('usuário cadastrado')
+    } catch(error) {
+      console.log('erro ao cadastrar usuário', error)
     }
-  };
+  }
+
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={CadastrarUsuario}>
       <div>
-        <label>Nome:</label>
-        <input type="text" name="nome" value={formData.nome} onChange={handleChange} required />
+        <label htmlFor="nome">Nome</label>
+        <input id="nome"type="text" placeholder="digite seu nome"
+          onChange={(e) => setNome(e.target.value)}
+        />
       </div>
       <div>
-        <label>Email:</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Senha:</label>
-        <input type="password" name="senha" value={formData.senha} onChange={handleChange} required />
-      </div>
-      <button type="submit">Registrar</button>
-    </form>
-  );
-};
+        <label htmlFor="email">Email</label>
+        <input id="email"type="text" placeholder="digite seu email"
+          onChange={(e) => setEmail(e.target.value)}
 
+        />
+      </div>
+      <div>
+        <label htmlFor="senha">Senha</label>
+        <input id="senha"type="text" placeholder="digite sua senha"
+          onChange={(e) => setSenha(e.target.value)}        
+        />
+      </div>
+      <button type='submit'>Cadastrar</button>
+    </form>
+
+  )
+}

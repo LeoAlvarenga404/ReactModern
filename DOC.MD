@@ -52,4 +52,4 @@ Para fazer uma requisição POST para criar um novo estudo usando `fetch`, você
 
 ## IDEIAS
 
-- 
+- mudar os cards
