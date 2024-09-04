@@ -13,7 +13,7 @@ export function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSignIn}>
+    <form onSubmit={handleSignIn} className="w-3/5 h-[70vh] bg-[url('./assets/bg-login.jpg')] flex justify-center items-center flex-col">
       <div>
         <label>EMAIL</label>
         <input

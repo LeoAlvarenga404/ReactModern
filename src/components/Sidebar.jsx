@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import { SidebarItem } from "./SidebarItem";
 import { RiDashboardFill, RiBook2Fill, RiSettings2Fill, RiCalendar2Fill, RiDashboard2Fill, RiFocusLine  } from "react-icons/ri";
-
 import logo from '../assets/logo.svg';
+import { useAuth } from '../hooks/auth';
+
+
 
 export function Sidebar() {
+
+  const { usuario } = useAuth();
+
   const [encolher, setEncolher] = useState(false);
   const [fixo, setFixo] = useState(false);
 
@@ -29,18 +34,12 @@ export function Sidebar() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className={` border-zinc-700 pt-4 pb-8 border-b border-zinc-800 flex items-center gap-4`}>
-        <img src={logo} alt="" className='min-w-14'/>
+      <div className={` border-zinc-700 pt-4 pb-8 border-b border-zinc-800`}>
+        <div className=' flex items-center gap-4'>
+        <img src={logo} alt="" className='min-w-16'/>
       
         <h1 className={`text-2xl font-medium text-zinc-200 transition-all ${encolher || fixo ? 'opacity-100' : 'opacity-0'}`}>Organize</h1>
-        
-
-        {/* <img src={logo} alt="logo" className={`w-full max-w-16 ${encolher || fixo ? '': 'translate-x-0'}`}/>
-        <h1
-          className={`text-2xl font-medium text-zinc-200 transition-all duration-300 whitespace-nowrap overflow-hidden ${encolher || fixo ? 'flex' : 'hidden'}`}
-        >
-          Organize
-        </h1> */}
+        </div>
         <button onClick={botaoFixarMenu} className={encolher || fixo ? `absolute top-2 right-2 text-zinc-100 ` : 'hidden'}>
           <RiFocusLine  size={24} className={fixo ? 'text-indigo-700' : 'text-zinc-100'}/>
         </button>

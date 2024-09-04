@@ -7,7 +7,7 @@ export function SidebarItem({ to, content, icon: Icon, hiddenOnHover }) {
 
   return (
     <Link to={to}>
-      <div className={`background-linear flex w-full py-3 gap-3 rounded-xl text-zinc-300 ${isActive ? 'bgOnActive' : ''}`}>
+      <div className={`background-linear flex w-full py-3 gap-3 rounded-xl hover:text-white ${isActive ? 'bgOnActive text-white' : 'text-zinc-300'}`}>
         <div className='ml-4'>
           <Icon size={32}/>
         </div>
