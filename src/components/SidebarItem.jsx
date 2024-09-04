@@ -7,12 +7,12 @@ export function SidebarItem({ to, content, icon: Icon, hiddenOnHover }) {
 
   return (
     <Link to={to}>
-      <div className={`flex w-full py-3 gap-3 rounded-xl text-zinc-300 ${isActive ? 'bg-indigo-700' : 'hover:bg-indigo-600'}`}>
+      <div className={`background-linear flex w-full py-3 gap-3 rounded-xl text-zinc-300 ${isActive ? 'bgOnActive' : ''}`}>
         <div className='ml-4'>
           <Icon size={32}/>
         </div>
       <span
-          className={`text-xl overflow-hidden whitespace-nowrap transition-all duration-500 ease-out ${hiddenOnHover ? 'opacity-0' : 'opacity-100'}`}
+          className={` text-xl overflow-hidden whitespace-nowrap transition-all duration-500 ease-out ${hiddenOnHover ? 'opacity-0' : 'opacity-100'}`}
         >
           {content}
         </span>

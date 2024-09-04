@@ -52,4 +52,6 @@ Para fazer uma requisição POST para criar um novo estudo usando `fetch`, você
 
 ## IDEIAS
 
-- mudar os cards
+1 - Estilizar Tela de Login
+2 - Estilizar Tela de Register
+3 - 
