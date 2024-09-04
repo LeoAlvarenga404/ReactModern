@@ -1,5 +1,4 @@
 import { ContainerStudyCards } from "../components/ContainerStudyCards";
-import { SelectIcons } from "../components/SelectIcons";
 import { Sidebar } from "../components/Sidebar";
 
 export function Home() {
