@@ -24,11 +24,11 @@ export function SignIn() {
   }
 
   return (
-    <div className="min-h-screen w-screen flex justify-center items-center bg-zinc-900 bg-[url('./assets/bg-login.jpg')] bg-cover relative before:absolute before:w-full before:h-full before:bg-black/90">
-      <div className="w-2/4 h-[60vh] backdrop-blur-sm bg-black/15 p-10 rounded-3xl shadow-black/20 shadow-xl  flex justify-center items-center flex gap-6">
+    <div className="min-h-screen w-screen flex justify-center items-center bg-zinc-900 bg-[url('./assets/bg-login.jpg')] bg-cover relative before:absolute before:w-full before:h-full before:bg-black/90 max-sm:min-h-screen">
+      <div className="w-[800px] h-[60vh] backdrop-blur-sm bg-black/15 p-10 rounded-3xl shadow-black/20 shadow-xl  flex justify-center items-center flex gap-6 max-lg:w-full max-lg:mx-10 max-sm:flex-col max-sm:min-h-screen max-sm:py-10 max-sm:px-0 max-sm:w-screen max-sm:m-2" >
         <div className='w-full flex flex-col gap-4'>
           <h1 className='text-5xl font-bold text-zinc-200'>BEM VINDO!</h1>
-            <div className='h-1 w-12 bg-zinc-100'></div>
+            <div className='h-1 w-12 bg-indigo-500'></div>
             <span className='text-sm font-medium text-zinc-400 mt-10 text-justify'>Somos a Organize, dedicados a ajudar você a gerenciar e otimizar seus estudos com eficiência. Explore nossas ferramentas e alcance seus objetivos acadêmicos com facilidade.</span>
         </div>
         <form onSubmit={handleSignIn} className='z-10 w-full flex flex-col items-center gap-4 border border-zinc-400 p-6 rounded-lg'>

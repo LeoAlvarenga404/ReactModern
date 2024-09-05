@@ -5,7 +5,7 @@ export function DefaultLayout() {
     return (
         <div className="min-h-screen bg-zinc-900 flex">
             <Sidebar />
-            <Outlet />
+            <Outlet/>
         </div>
     )
 }
