@@ -76,7 +76,7 @@ export function SignUp() {
           
           className='p-2 pl-10 w-full rounded bg-transparent outline outline-1  outline-zinc-400 border-zinc-500  focus:outline-indigo-700'     
         />
-             <button type="button" onClick={MostrarSenha} className='absolute right-2 top-9'>
+             <button tabIndex="-1" type="button" onClick={MostrarSenha} className='absolute right-2 top-9'>
               {showSenha ?
                 <RiEyeLine size={24} />
                 :

@@ -56,7 +56,7 @@ export function SignIn() {
             placeholder='Digite sua senha'
             className={`p-2 pl-10 w-full rounded bg-transparent outline outline-1  outline-zinc-400 border-zinc-500  focus:outline-indigo-700`}
           />
-          <button onClick={MostrarSenha}>
+          <button tabIndex="-1" onClick={MostrarSenha} >
             {
               showSenha ?
               <div> <RiEyeLine size={24} className='cursor-pointer absolute right-2 top-9'/></div>

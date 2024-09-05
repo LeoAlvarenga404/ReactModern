@@ -30,7 +30,7 @@ export function Sidebar() {
 
   return (
     <aside
-      className={`flex flex-col relative ${encolher || fixo ? 'w-96' : 'w-[80px]'} bg-zinc-950 transition-width duration-300 p-2`}
+      className={`flex flex-col relative ${encolher || fixo ? 'w-80' : 'w-[80px]'} bg-zinc-950 transition-width duration-300 p-2`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
