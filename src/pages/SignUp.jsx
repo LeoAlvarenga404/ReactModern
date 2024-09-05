@@ -76,20 +76,18 @@ export function SignUp() {
           
           className='p-2 pl-10 w-full rounded bg-transparent outline outline-1  outline-zinc-400 border-zinc-500  focus:outline-indigo-700'     
         />
-         <button onClick={MostrarSenha}>
-            {
-              showSenha ?
-              <div> <RiEyeLine size={24} className='cursor-pointer absolute right-2 top-9'/></div>
-              :
-              <div><RiEyeOffLine size={24} className='cursor-pointer absolute right-2 top-9'/></div>
-            }
-            
-          </button>
+             <button type="button" onClick={MostrarSenha} className='absolute right-2 top-9'>
+              {showSenha ?
+                <RiEyeLine size={24} />
+                :
+                <RiEyeOffLine size={24} />
+              }
+            </button>
         <RiLockLine size={24} className='cursor-pointer absolute left-2 top-9'/>
       </div>
       <div className='w-full flex items-center justify-between'>
         <button type="submit" className=' w-full rounded p-3 bgOnActive text-zinc-100 text-xl '>Cadastrar</button>
-          <Link to='/' className='w-full text-end text-zinc-200 hover:text-'>Fazer login</Link>
+          <Link to='/' className='w-full text-end text-zinc-200 hover:text-indigo-700'>Fazer login</Link>
         </div>
     </form>
 

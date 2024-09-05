@@ -59,18 +59,18 @@ export function SignIn() {
           <button onClick={MostrarSenha}>
             {
               showSenha ?
-              <div> <RiEyeLine size={24} className='cursor-pointer absolute right-2 top-8'/></div>
+              <div> <RiEyeLine size={24} className='cursor-pointer absolute right-2 top-9'/></div>
               :
-              <div><RiEyeOffLine size={24} className='cursor-pointer absolute right-2 top-8'/></div>
+              <div><RiEyeOffLine size={24} className='cursor-pointer absolute right-2 top-9'/></div>
             }
             
           </button>
-          <RiLockLine size={24} className='cursor-pointer absolute left-2 top-8'/>
+          <RiLockLine size={24} className='cursor-pointer absolute left-2 top-9'/>
 
         </div>
         <div className='w-full flex items-center justify-between'>
         <button type="submit" className=' w-full rounded p-3 bgOnActive text-zinc-100 text-xl '>Entrar</button>
-          <Link to='/register' className='w-full text-end text-zinc-200 hover:text-'>Crie sua conta</Link>
+          <Link to='/register' className='w-full text-end text-zinc-200 hover:text-indigo-700'>Crie sua conta</Link>
         </div>
       </form>
       </div>
