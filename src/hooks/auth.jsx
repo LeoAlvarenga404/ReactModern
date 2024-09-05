@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from '../api/conexao';
 
@@ -17,7 +18,6 @@ function AuthProvider({ children }) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
       setData({ usuario, token });
-      alert('Usuário logado com sucesso!');
     } catch (error) {
       if (error.response) {
         alert('Erro ao tentar logar.');

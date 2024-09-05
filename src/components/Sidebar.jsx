@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { SidebarItem } from "./SidebarItem";
 import { RiDashboardFill, RiBook2Fill, RiSettings2Fill, RiCalendar2Fill, RiDashboard2Fill, RiFocusLine  } from "react-icons/ri";
 import logo from '../assets/logo.svg';
-import { useAuth } from '../hooks/auth';
+// import { useAuth } from '../hooks/auth';
 
 
 
 export function Sidebar() {
 
-  const { usuario } = useAuth();
+  // const { usuario } = useAuth();
 
   const [encolher, setEncolher] = useState(false);
   const [fixo, setFixo] = useState(false);
