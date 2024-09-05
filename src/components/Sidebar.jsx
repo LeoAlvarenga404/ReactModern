@@ -46,7 +46,7 @@ export function Sidebar() {
       </div>
       <nav className="flex flex-col gap-4 mt-5">
         <SidebarItem to='/' content='Início' icon={RiDashboardFill } hiddenOnHover={!encolher && !fixo} />
-        <SidebarItem to='/teste' content='Matérias' icon={RiBook2Fill  } hiddenOnHover={!encolher && !fixo} />
+        <SidebarItem to='/materias' content='Matérias' icon={RiBook2Fill  } hiddenOnHover={!encolher && !fixo} />
         <SidebarItem to='/teste2' content='Calendário' icon={RiCalendar2Fill  } hiddenOnHover={!encolher && !fixo} />
         <SidebarItem to='/teste3' content='Desempenho' icon={RiDashboard2Fill  } hiddenOnHover={!encolher && !fixo} />
         <SidebarItem to='/teste3' content='Configuração' icon={RiSettings2Fill  } hiddenOnHover={!encolher && !fixo} />
