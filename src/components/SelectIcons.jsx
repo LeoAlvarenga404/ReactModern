@@ -1,4 +1,3 @@
-import React from 'react';
 import Select from 'react-select';
 import { FaBeer, FaCoffee, FaApple, FaCar, FaCamera, FaAngry } from 'react-icons/fa'; // Exemplo de ícones
 
@@ -10,10 +9,8 @@ const icons = {
   car: FaCar,
   camera: FaCamera,
   angry: FaAngry
-  // Adicione mais ícones conforme necessário
 };
 
-// Converta o mapeamento de ícones em opções para o select
 const iconOptions = Object.entries(icons).map(([key, IconComponent]) => ({
   value: key,
   label: (
@@ -24,11 +21,15 @@ const iconOptions = Object.entries(icons).map(([key, IconComponent]) => ({
   )
 }));
 
-export function SelectIcons() {
+// eslint-disable-next-line react/prop-types
+export function SelectIcons({ onChange }) {
   return (
     <div className="w-64">
       <Select
         options={iconOptions}
+        onChange={(selectedOption) => {
+          onChange(selectedOption ? selectedOption.value : "");
+        }}
         getOptionLabel={(option) => option.label}
         getOptionValue={(option) => option.value}
         className="basic-single"
